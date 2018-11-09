@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
 
     public NavMeshAgent agent;
 
+    public Animator animatorChepe;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -25,8 +27,22 @@ public class PlayerController : MonoBehaviour {
                 // Move our Agent
                 agent.SetDestination(hit.point);
 
+                animatorChepe.SetBool("ChepeIsMoving", true);
+
             }
         }
-		
-	}
+
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    // Done
+                    animatorChepe.SetBool("ChepeIsMoving", false);
+                }
+            }
+        }
+
+    }
 }
