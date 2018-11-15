@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 
     public Animator animatorChepe;
 
+    public SpriteRenderer spriteChepe;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -29,6 +31,14 @@ public class PlayerController : MonoBehaviour {
 
                 animatorChepe.SetBool("ChepeIsMoving", true);
 
+                if( hit.point.x > this.transform.position.x ){
+                    spriteChepe.flipX = false;
+                }else{
+                    spriteChepe.flipX = true;
+                }
+
+                //Debug.Log(Input.mousePosition.x);
+                Debug.Log(hit.point.x);
             }
         }
 

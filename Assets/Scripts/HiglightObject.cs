@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class HiglightObject : MonoBehaviour {
 
+    public SpriteRenderer spriteObjeto;
     private Color startColor;
     public Color mouseOverColor;
     bool mouseOver = false;
 
+
+
 	private void OnMouseEnter()
 	{
-        startColor = GetComponent<Renderer>().material.color;
+        startColor = spriteObjeto.color;
         mouseOver = true;
-        GetComponent<Renderer>().material.SetColor("_Color", mouseOverColor);
+        spriteObjeto.color = mouseOverColor;
 	}
 
 	private void OnMouseExit()
 	{
         mouseOver = false;
-        GetComponent<Renderer>().material.SetColor("_Color", startColor);
+        spriteObjeto.color = startColor;
 	}
 }
