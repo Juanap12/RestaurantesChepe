@@ -23,4 +23,5 @@ public class HiglightObject : MonoBehaviour {
         mouseOver = false;
         spriteObjeto.color = startColor;
 	}
+
 }
